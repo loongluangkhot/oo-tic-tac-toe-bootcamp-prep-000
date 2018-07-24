@@ -1,11 +1,6 @@
 require 'pry'
 
 class TicTacToe
-  
-  @board
-  @user_input
-  @index
-  @current_player
 
   WIN_COMBINATIONS = [
     [0,1,2],
