@@ -1,4 +1,3 @@
-require 'pry'
 
 class TicTacToe
 
@@ -37,21 +36,20 @@ class TicTacToe
   #   board[location] != " " && board[location] != ""
   # end
   
-  def position_taken?
-    !(@board[@index].nil? || @board[@index] == " ")
+  def position_taken?(index)
+    !(@board[index].nil? || @board[index] == " ")
   end
   
-  def valid_move?
-    @index.between?(0,8) && !position_taken?
+  def valid_move?(index)
+    index.between?(0,8) && !position_taken?(index)
   end
   
   def turn
     puts "Please enter 1-9:"
     user_input = gets.strip
-    @index = input_to_index(user_input)
-    if valid_move?
-      @current_player = current_player
-      move
+    index = input_to_index(user_input)
+    if valid_move?(index)
+      move(index, current_player)
       display_board
     else
       turn
